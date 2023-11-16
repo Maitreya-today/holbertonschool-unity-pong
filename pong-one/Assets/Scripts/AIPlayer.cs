@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class AIPlayer : MonoBehaviour
 {
-    private Paddle paddle;  // Reference to the player paddle script
+    private Paddle paddle; // Reference to the player paddle script
 
-    public float difficultyFactor = 1.0f;  // Adjust this based on difficulty settings
+    public float difficultyFactor = 1.0f; // Adjust this based on difficulty settings
 
     void Start()
     {
         // Find and store the reference to the player paddle
         FindPlayerPaddle();
-        
+
         // Disable the player script if it exists in the parent object
         DisableIfPlayerExists();
     }
@@ -37,3 +37,7 @@ public class AIPlayer : MonoBehaviour
     // Disables the player script if it exists in the parent object
     void DisableIfPlayerExists()
     {
+        // Player = DisableIfPlayerExists<Player>();
+    }
+}
+    

@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class PongGame : MonoBehaviour
 {
     public int winningScore = 11;
-    public Text victoryMessage;
-    public Text player1ScoreText;
-    public Text player2ScoreText;
+    public TMP_Text victoryMessage;
+    public TMP_Text player1ScoreText;
+    public TMP_Text player2ScoreText;
 
     private int player1Score = 0;
     private int player2Score = 0;

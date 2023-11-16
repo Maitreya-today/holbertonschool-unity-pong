@@ -2,11 +2,22 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public static Ball Instance { get; private set; }
+    
     public float speed = 5f;
     private Vector2 direction;
 
     void Start()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+        
         // Initialize the ball's direction
         direction = new Vector2(1, 0).normalized;
     }
