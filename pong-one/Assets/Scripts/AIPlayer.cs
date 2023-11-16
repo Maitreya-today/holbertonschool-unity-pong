@@ -37,7 +37,10 @@ public class AIPlayer : MonoBehaviour
     // Disables the player script if it exists in the parent object
     void DisableIfPlayerExists()
     {
-        // Player = DisableIfPlayerExists<Player>();
+        Player player = GetComponentInParent<Player>();
+        if (player != null)
+        {
+            player.enabled = false;
+        }
     }
 }
-    
