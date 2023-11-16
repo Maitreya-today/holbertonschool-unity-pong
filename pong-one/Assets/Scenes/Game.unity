@@ -378,29 +378,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355503751}
   m_CullTransparentMesh: 1
---- !u!1 &410418469 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7968578836376712967, guid: c4d739b3024c70643b3eda6d7eda57b7, type: 3}
-  m_PrefabInstance: {fileID: 7968578835968657954}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &410418470 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7968578836376712964, guid: c4d739b3024c70643b3eda6d7eda57b7, type: 3}
   m_PrefabInstance: {fileID: 7968578835968657954}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &410418475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410418469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 831c938e111703741ba7f2d495979afe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!1 &661266314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,10 +1529,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7968578836376712967, guid: c4d739b3024c70643b3eda6d7eda57b7, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 2800000, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
     - target: {fileID: 7968578836376712967, guid: c4d739b3024c70643b3eda6d7eda57b7, type: 3}
       propertyPath: m_Name
       value: Ball
