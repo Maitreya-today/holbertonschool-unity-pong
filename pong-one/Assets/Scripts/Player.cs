@@ -1,59 +1,34 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace ZPong
+public class Player : MonoBehaviour
 {
+    public KeyCode upKey = KeyCode.W;
+    public KeyCode downKey = KeyCode.S;
+    public float speed = 5f; // Adjust the speed to your liking
+    public float maxY = 4.5f; // Set the maximum y-position
+    public float minY = -4.5f; // Set the minimum y-position
 
-    [RequireComponent(typeof(Paddle))]
-    public class Player : MonoBehaviour
+    void Update()
     {
+        // Get input from the player
+        float input = 0f;
 
-        private bool isLeftPaddle;
-
-        public KeyCode upKey;
-        public KeyCode downKey;
-
-        public float speed = 5f;
-
-        private Paddle thisPaddle;
-
-        private void Start()
+        if (Input.GetKey(upKey))
         {
-            thisPaddle = GetComponent<Paddle>();
-
-            isLeftPaddle = thisPaddle.isLeftPaddle;
-            
-            // Retrieve player-specific input keys from PlayerPrefs.
-            string upKeyPref = "Player" + (isLeftPaddle ? "One" : "Two") + "UpInput";
-            string downKeyPref = "Player" + (isLeftPaddle ? "One" : "Two") + "DownInput";
-
-            if (PlayerPrefs.HasKey(upKeyPref) && PlayerPrefs.HasKey(downKeyPref))
-            {
-                upKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(upKeyPref));
-                downKey = (KeyCode)Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(downKeyPref));
-            }
-            
-            if (PlayerPrefs.HasKey("PaddleSpeed"))
-            {
-                speed = PlayerPrefs.GetFloat("PaddleSpeed");
-            }
+            input = 1f;
+        }
+        else if (Input.GetKey(downKey))
+        {
+            input = -1f;
         }
 
-        private void Update()
-        {
-            float verticalInput = 0;
-            if (Input.GetKey(upKey))
-            {
-                verticalInput = 1;
-            }
-            else if (Input.GetKey(downKey))
-            {
-                verticalInput = -1;
-            }
+        // Calculate the new position of the paddle
+        float newY = transform.position.y + input * speed * Time.deltaTime;
 
-            thisPaddle.Move(verticalInput * speed * Time.deltaTime);
-        }
+        // Clamp the position to stay within the playable area
+        newY = Mathf.Clamp(newY, minY, maxY);
+
+        // Update the paddle's position
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 }
